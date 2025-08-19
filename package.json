@@ -1,11 +1,11 @@
 {
-  "name": "shadcn-vue-admin",
+  "name": "admin-food-booking",
   "type": "module",
   "version": "0.5.1",
   "private": false,
-  "packageManager": "pnpm@9.15.2+sha512.93e57b0126f0df74ce6bff29680394c0ba54ec47246b9cf321f0121d8d9bb03f750a705f24edc3c1180853afd7c2c3b94196d0a3d53d3e069d9e2793ef11f321",
+  "packageManager": "yarn@1.22.22",
   "description": "Admin Dashboard UI crafted with Shadcn-vue, Vue3 and Vite. Built with responsiveness and accessibility in mind.",
-  "author": "Whbbit1999",
+  "author": "Nguyen Duc Minh Trung",
   "license": "MIT",
   "keywords": [
     "vue",
@@ -18,7 +18,7 @@
     "tanstack-table",
     "eslint",
     "pinia",
-    "pnpm"
+    "yarn"
   ],
   "scripts": {
     "dev": "vite",
@@ -92,7 +92,7 @@
     "vue-tsc": "^3.0.1"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm lint-staged"
+    "pre-commit": "yarn lint-staged"
   },
   "lint-staged": {
     "*": "eslint --fix"
