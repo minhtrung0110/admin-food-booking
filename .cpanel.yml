@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/hoangmin/admin.hoangminh.site
+    - /bin/rsync -av --delete --exclude='.git*' ./dist/ $DEPLOYPATH
