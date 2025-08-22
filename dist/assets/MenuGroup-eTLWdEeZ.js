@@ -1,1 +1,0 @@
-import{P as o}from"./index-CXxZOWHz.js";import{d as t,c as u,o as s,w as p,g as l,m as n,u as _}from"./index-BKPedEfM.js";var i=t({__name:"MenuGroup",props:{asChild:{type:Boolean,required:!1},as:{type:null,required:!1}},setup(e){const r=e;return(a,d)=>(s(),u(_(o),n({role:"group"},r),{default:p(()=>[l(a.$slots,"default")]),_:3},16))}}),c=i;export{c as M};

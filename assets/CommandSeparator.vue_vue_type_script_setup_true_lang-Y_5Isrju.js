@@ -1,0 +1,6 @@
+import{a as u,d as r,h as d,n as m,u as o,g as c,o as l,e as i,c as _,m as f,w as h}from"./index-gY0TI7hK.js";import{c as n}from"./index-D4NkeJUS.js";import{S as x}from"./Separator.vue_vue_type_script_setup_true_lang-BjALOIVu.js";/**
+ * @license lucide-vue-next v0.525.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const B=u("plus",[["path",{d:"M5 12h14",key:"1ays0h"}],["path",{d:"M12 5v14",key:"s699le"}]]),C=r({__name:"DropdownMenuShortcut",props:{class:{}},setup(a){const s=a;return(e,t)=>(l(),d("span",{class:m(o(n)("ml-auto text-xs tracking-widest opacity-60",s.class))},[c(e.$slots,"default")],2))}}),S=r({__name:"DialogHeader",props:{class:{}},setup(a){const s=a;return(e,t)=>(l(),d("div",{"data-slot":"dialog-header",class:m(o(n)("flex flex-col gap-2 text-center sm:text-left",s.class))},[c(e.$slots,"default")],2))}}),$=r({__name:"CommandSeparator",props:{orientation:{},decorative:{type:Boolean},asChild:{type:Boolean},as:{},class:{}},setup(a){const s=a,e=i(()=>{const{class:t,...p}=s;return p});return(t,p)=>(l(),_(o(x),f({"data-slot":"command-separator"},e.value,{class:o(n)("bg-border -mx-1 h-px",s.class)}),{default:h(()=>[c(t.$slots,"default")]),_:3},16,["class"]))}});export{B as P,C as _,S as a,$ as b};
