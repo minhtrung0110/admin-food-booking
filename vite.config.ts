@@ -63,4 +63,5 @@ export default defineConfig({
     drop: ['debugger'],
     pure: ['console.log'],
   },
+  base: '/',
 })

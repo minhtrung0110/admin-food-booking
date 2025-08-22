@@ -1,0 +1,20 @@
+---
+deployment:
+  tasks:
+    - echo "== Start deploy to admin.hoangminh.site =="
+    - export DEPLOYPATH=/home/hoangmin/admin.hoangminh.site
+    - /bin/mkdir -p $DEPLOYPATH
+
+    # Tạm giữ lại .well-known (SSL)
+    - if [ -d "$DEPLOYPATH/.well-known" ]; then /bin/mv "$DEPLOYPATH/.well-known" "/home/hoangmin/.well-known-backup"; fi
+
+    # Xoá sạch nội dung cũ (không đụng đến .well-known vì đã move)
+    - /bin/rm -rf $DEPLOYPATH/*
+
+    # Copy bản build mới từ dist
+    - /bin/cp -a ./dist/. $DEPLOYPATH/
+
+    # Khôi phục .well-known nếu có
+    - if [ -d "/home/hoangmin/.well-known-backup" ]; then /bin/mv "/home/hoangmin/.well-known-backup" "$DEPLOYPATH/.well-known"; fi
+
+    - echo "== Deploy done =="
