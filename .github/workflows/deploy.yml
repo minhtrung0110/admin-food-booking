@@ -20,46 +20,27 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20 # KHÔNG cấu hình cache để tránh lỗi khi thiếu lock file
+          node-version: 20
 
-      - name: Enable Corepack (yarn/pnpm)
-        run: corepack enable
+      - name: Install Yarn classic
+        run: npm i -g yarn@1.22.22
 
-      # --- Install deps theo lock file hiện có ---
-      - name: Use pnpm
-        if: hashFiles('**/pnpm-lock.yaml') != ''
-        uses: pnpm/action-setup@v4
-        with:
-          version: 9
-
-      - name: Install (pnpm)
-        if: hashFiles('**/pnpm-lock.yaml') != ''
-        run: pnpm install --frozen-lockfile
-
-      - name: Install (yarn)
-        if: hashFiles('**/yarn.lock') != ''
-        run: yarn install --frozen-lockfile
-
-      - name: Install (npm ci)
-        if: hashFiles('**/package-lock.json') != ''
-        run: npm ci
-
-      - name: Install (npm, no lock)
-        if: hashFiles('**/package-lock.json') == '' && hashFiles('**/yarn.lock') == '' && hashFiles('**/pnpm-lock.yaml') == ''
-        run: npm install
-
-      # --- Build ---
-      - name: Build
+      # Nếu có yarn.lock thì dùng --frozen-lockfile; nếu chưa có, vẫn cài bình thường
+      - name: Install deps (yarn)
         run: |
-          if [ -f pnpm-lock.yaml ]; then pnpm build;
-          elif [ -f yarn.lock ]; then yarn build;
-          else npm run build; fi
+          if [ -f yarn.lock ]; then
+            yarn install --frozen-lockfile
+          else
+            yarn install
+          fi
 
-      # Đưa .cpanel.yml vào dist để branch deploy có file ở ROOT
+      - name: Build
+        run: yarn build
+
+      # chép .cpanel.yml vào dist để branch deploy có file ở ROOT
       - name: Include .cpanel.yml
         run: cp .cpanel.yml dist/. || true
 
-      # Publish nội dung dist lên branch deploy (ở ROOT)
       - name: Publish to deploy branch
         uses: peaceiris/actions-gh-pages@v3
         with:
