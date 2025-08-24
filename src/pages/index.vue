@@ -1,7 +1,7 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { useRouter } from 'vue-router'
 
-import Loading from '@/components/loading.vue'
+import GlobalLoader from '@/components/loading/GlobalLoader.vue'
 
 const router = useRouter()
 router.push({ name: '/dashboard/' })
@@ -9,7 +9,7 @@ router.push({ name: '/dashboard/' })
 
 <template>
   <div class="flex items-center justify-center w-screen h-screen">
-    <Loading />
+    <GlobalLoader />
   </div>
 </template>
 

@@ -1,7 +1,7 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { storeToRefs } from 'pinia'
 
-import Loading from '@/components/loading.vue'
+import GlobalLoader from '@/components/loading/GlobalLoader.vue'
 import { Toaster } from '@/components/ui/sonner'
 import { THEMES, useThemeStore } from '@/stores/theme'
 
@@ -18,14 +18,13 @@ watchEffect(() => {
 <template>
   <Toaster />
   <!-- <VueQueryDevtools /> -->
-
   <Suspense>
     <router-view v-slot="{ Component, route }">
       <component :is="Component" :key="route" />
     </router-view>
 
     <template #fallback>
-      <Loading />
+      <GlobalLoader />
     </template>
   </Suspense>
 </template>
